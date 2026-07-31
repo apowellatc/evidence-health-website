@@ -214,17 +214,19 @@
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       color: var(--white);
       font-size: 1.02rem;
       font-weight: 760;
       line-height: 1.02;
     }
 
-    .brand-mark {
-      width: 43px;
-      flex: 0 0 43px;
-    }
+   .brand-mark {
+  width: 58px;
+  height: 58px;
+  flex: 0 0 58px;
+  object-fit: contain;
+}
 
     .nav-links {
       display: flex;
@@ -790,39 +792,6 @@
       grid-template-columns: 0.75fr 1.25fr;
       align-items: center;
       gap: 90px;
-    }
-
-    .founder-mark {
-      position: relative;
-      display: grid;
-      width: min(100%, 370px);
-      aspect-ratio: 1;
-      place-items: center;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.03);
-    }
-
-    .founder-mark::before,
-    .founder-mark::after {
-      content: "";
-      position: absolute;
-      border: 1px solid rgba(32, 212, 210, 0.16);
-      border-radius: 50%;
-    }
-
-    .founder-mark::before {
-      inset: 35px;
-    }
-
-    .founder-mark::after {
-      inset: 80px;
-    }
-
-    .founder-mark svg {
-      position: relative;
-      z-index: 2;
-      width: 150px;
     }
 
     .founder h2 {
@@ -1543,7 +1512,7 @@
   <img
     src="logo-mark.svg"
     alt=""
-    style="width: 150px;"
+    style="width: 230px; max-width: 70%;"
   />
 </div>
 
