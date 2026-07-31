@@ -1,1 +1,1725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Evidence Health | Clear information. Confident conversations.</title>
+
+  <meta
+    name="description"
+    content="Evidence Health creates patient-centered tools that help people organize what happens between appointments and prepare for more productive care conversations."
+  />
+
+  <meta name="theme-color" content="#061b33" />
+
+  <style>
+    :root {
+      --navy-950: #041426;
+      --navy-900: #061b33;
+      --navy-800: #0b2945;
+      --navy-700: #123a5d;
+
+      --teal-500: #20d4d2;
+      --teal-600: #14b8ba;
+      --teal-700: #159da4;
+
+      --orange: #ff715b;
+
+      --white: #ffffff;
+      --off-white: #f7fafc;
+      --gray-100: #edf3f7;
+      --gray-200: #d9e4ec;
+      --gray-400: #94a8b8;
+      --gray-600: #526879;
+      --gray-800: #253746;
+
+      --max-width: 1180px;
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 30px;
+      --shadow: 0 24px 70px rgba(2, 18, 34, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      color: var(--gray-800);
+      background: var(--off-white);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max-width));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 18px;
+      color: var(--teal-700);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    h1 {
+      max-width: 760px;
+      font-size: clamp(3rem, 7vw, 6.7rem);
+      color: var(--white);
+    }
+
+    h2 {
+      font-size: clamp(2.2rem, 4.5vw, 4.2rem);
+      color: var(--navy-900);
+    }
+
+    h3 {
+      font-size: 1.35rem;
+      color: var(--navy-900);
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    .section {
+      padding: 110px 0;
+    }
+
+    .section-copy {
+      max-width: 650px;
+      margin-top: 24px;
+      color: var(--gray-600);
+      font-size: 1.1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 23px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-weight: 750;
+      transition:
+        transform 180ms ease,
+        background 180ms ease,
+        border-color 180ms ease,
+        color 180ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: var(--navy-950);
+      background: var(--teal-500);
+      box-shadow: 0 10px 36px rgba(32, 212, 210, 0.22);
+    }
+
+    .btn-primary:hover {
+      background: #3ce2df;
+    }
+
+    .btn-secondary {
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255, 255, 255, 0.46);
+      background: rgba(255, 255, 255, 0.11);
+    }
+
+    .btn-light {
+      color: var(--navy-900);
+      background: var(--white);
+    }
+
+    .orange-mark {
+      color: var(--orange);
+    }
+
+    /* Header */
+
+    .site-header {
+      position: absolute;
+      z-index: 20;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 25px 0;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--white);
+      font-size: 1.02rem;
+      font-weight: 760;
+      line-height: 1.02;
+    }
+
+    .brand-mark {
+      width: 43px;
+      flex: 0 0 43px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.92rem;
+      font-weight: 650;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .nav-cta {
+      padding: 10px 17px;
+      border: 1px solid rgba(32, 212, 210, 0.55);
+      border-radius: 999px;
+      color: var(--teal-500);
+    }
+
+    .menu-button {
+      display: none;
+      padding: 8px;
+      border: 0;
+      color: var(--white);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    /* Hero */
+
+    .hero {
+      position: relative;
+      min-height: 850px;
+      overflow: hidden;
+      padding: 195px 0 120px;
+      background:
+        radial-gradient(circle at 75% 48%, rgba(32, 212, 210, 0.14), transparent 25%),
+        radial-gradient(circle at 20% 0%, rgba(14, 124, 154, 0.16), transparent 32%),
+        linear-gradient(145deg, var(--navy-950), var(--navy-900) 55%, #06223c);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.14;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: linear-gradient(to bottom, black, transparent 82%);
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      align-items: center;
+      gap: 65px;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 26px;
+      color: var(--teal-500);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .hero-kicker span {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--orange);
+      box-shadow: 0 0 18px rgba(255, 113, 91, 0.8);
+    }
+
+    .hero h1 .accent {
+      color: var(--teal-500);
+    }
+
+    .hero-description {
+      max-width: 690px;
+      margin-top: 30px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: clamp(1.08rem, 1.7vw, 1.3rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 38px;
+    }
+
+    .hero-note {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 25px;
+      color: rgba(255, 255, 255, 0.54);
+      font-size: 0.88rem;
+    }
+
+    .hero-note span {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+
+    .signal-stage {
+      position: relative;
+      min-height: 540px;
+    }
+
+    .signal-glow {
+      position: absolute;
+      top: 4%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: rgba(32, 212, 210, 0.08);
+      filter: blur(25px);
+    }
+
+    .signal-card {
+      position: absolute;
+      inset: 28px 0 auto auto;
+      width: min(100%, 490px);
+      min-height: 465px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.025)),
+        rgba(4, 20, 38, 0.48);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .signal-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(120deg, transparent 38%, rgba(255, 255, 255, 0.05), transparent 62%);
+    }
+
+    .signal-label {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 15px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      color: var(--white);
+      background: rgba(6, 27, 51, 0.88);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
+      font-size: 0.88rem;
+      font-weight: 750;
+    }
+
+    .signal-label::before {
+      content: "";
+      width: 11px;
+      height: 11px;
+      border: 2px solid var(--teal-500);
+      border-radius: 50%;
+      box-shadow: 0 0 13px rgba(32, 212, 210, 0.65);
+    }
+
+    .label-track {
+      top: 57px;
+      right: 30px;
+    }
+
+    .label-review {
+      top: 185px;
+      left: 30px;
+    }
+
+    .label-prepare {
+      top: 300px;
+      right: 31px;
+    }
+
+    .label-discuss {
+      bottom: 34px;
+      left: 43px;
+    }
+
+    .signal-path {
+      position: absolute;
+      inset: 0;
+    }
+
+    .orange-node {
+      position: absolute;
+      z-index: 3;
+      top: 246px;
+      left: 231px;
+      width: 11px;
+      height: 11px;
+      border: 3px solid var(--orange);
+      border-radius: 50%;
+      background: var(--white);
+      box-shadow:
+        0 0 0 5px rgba(255, 113, 91, 0.11),
+        0 0 22px rgba(255, 113, 91, 0.65);
+    }
+
+    /* Workflow */
+
+    .workflow {
+      background: var(--white);
+    }
+
+    .workflow-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 55px;
+    }
+
+    .workflow-header p {
+      max-width: 490px;
+      color: var(--gray-600);
+      font-size: 1.08rem;
+    }
+
+    .workflow-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .workflow-card {
+      position: relative;
+      min-height: 285px;
+      padding: 28px;
+      overflow: hidden;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      background: var(--off-white);
+      transition:
+        transform 200ms ease,
+        border-color 200ms ease,
+        box-shadow 200ms ease;
+    }
+
+    .workflow-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(32, 212, 210, 0.55);
+      box-shadow: 0 18px 42px rgba(6, 27, 51, 0.08);
+    }
+
+    .workflow-number {
+      display: inline-flex;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 45px;
+      border-radius: 50%;
+      color: var(--navy-900);
+      background: rgba(32, 212, 210, 0.16);
+      font-weight: 850;
+    }
+
+    .workflow-card:nth-child(4) .workflow-number {
+      color: var(--white);
+      background: var(--navy-900);
+    }
+
+    .workflow-card h3 {
+      margin-bottom: 13px;
+    }
+
+    .workflow-card p {
+      color: var(--gray-600);
+    }
+
+    .workflow-line {
+      position: absolute;
+      right: -27px;
+      bottom: -27px;
+      width: 110px;
+      height: 110px;
+      border: 18px solid rgba(32, 212, 210, 0.07);
+      border-radius: 50%;
+    }
+
+    /* Product */
+
+    .product {
+      overflow: hidden;
+      background: var(--gray-100);
+    }
+
+    .product-card {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      min-height: 620px;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      background: var(--navy-900);
+      box-shadow: var(--shadow);
+    }
+
+    .product-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 70px;
+      color: var(--white);
+    }
+
+    .product-copy h2 {
+      color: var(--white);
+    }
+
+    .product-copy h2 span {
+      color: var(--orange);
+    }
+
+    .product-copy p {
+      margin: 25px 0 30px;
+      color: rgba(255, 255, 255, 0.69);
+      font-size: 1.08rem;
+    }
+
+    .product-list {
+      display: grid;
+      gap: 14px;
+      margin-bottom: 34px;
+    }
+
+    .product-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: rgba(255, 255, 255, 0.83);
+      list-style: none;
+    }
+
+    .check {
+      display: inline-flex;
+      width: 23px;
+      height: 23px;
+      flex: 0 0 23px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+      border: 1px solid rgba(32, 212, 210, 0.42);
+      border-radius: 50%;
+      color: var(--teal-500);
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+
+    .product-visual {
+      position: relative;
+      min-height: 620px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 55% 40%, rgba(32, 212, 210, 0.18), transparent 24%),
+        linear-gradient(145deg, #0a2c4a, #041426);
+    }
+
+    .phone {
+      position: absolute;
+      width: 245px;
+      height: 490px;
+      overflow: hidden;
+      border: 8px solid #111a24;
+      border-radius: 42px;
+      background: var(--white);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+    }
+
+    .phone-left {
+      bottom: -40px;
+      left: 12%;
+      transform: rotate(-5deg);
+    }
+
+    .phone-right {
+      top: 66px;
+      right: 8%;
+      transform: rotate(4deg);
+    }
+
+    .phone-screen {
+      height: 100%;
+      padding: 28px 18px;
+      background: var(--off-white);
+    }
+
+    .phone-screen.dark {
+      color: var(--white);
+      background: linear-gradient(180deg, #0b2945, #061b33);
+    }
+
+    .phone-notch {
+      position: absolute;
+      z-index: 2;
+      top: 9px;
+      left: 50%;
+      width: 76px;
+      height: 21px;
+      border-radius: 999px;
+      background: #080d12;
+      transform: translateX(-50%);
+    }
+
+    .phone-greeting {
+      margin: 13px 0 17px;
+      font-weight: 780;
+    }
+
+    .phone-card {
+      margin-bottom: 12px;
+      padding: 16px;
+      border: 1px solid var(--gray-200);
+      border-radius: 15px;
+      background: var(--white);
+      box-shadow: 0 7px 22px rgba(6, 27, 51, 0.06);
+    }
+
+    .dark .phone-card {
+      border-color: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: none;
+    }
+
+    .phone-label {
+      color: var(--gray-600);
+      font-size: 0.68rem;
+      font-weight: 750;
+    }
+
+    .dark .phone-label {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .phone-value {
+      margin-top: 4px;
+      font-size: 1.38rem;
+      font-weight: 850;
+    }
+
+    .mini-chart {
+      width: 100%;
+      height: 90px;
+      margin-top: 10px;
+    }
+
+    .phone-action {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 11px;
+      padding: 14px 12px;
+      border: 1px solid var(--gray-200);
+      border-radius: 13px;
+      background: var(--white);
+    }
+
+    .phone-action-icon {
+      display: inline-flex;
+      width: 32px;
+      height: 32px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: var(--navy-900);
+      background: rgba(32, 212, 210, 0.18);
+      font-weight: 850;
+    }
+
+    .phone-action-copy strong {
+      display: block;
+      color: var(--navy-900);
+      font-size: 0.8rem;
+    }
+
+    .phone-action-copy span {
+      display: block;
+      color: var(--gray-600);
+      font-size: 0.65rem;
+    }
+
+    /* Principles */
+
+    .principles {
+      background: var(--white);
+    }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+      gap: 90px;
+    }
+
+    .principle-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .principle {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 18px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .principle-icon {
+      display: inline-flex;
+      width: 46px;
+      height: 46px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      color: var(--navy-900);
+      background: rgba(32, 212, 210, 0.14);
+      font-weight: 850;
+    }
+
+    .principle:last-child .principle-icon {
+      color: var(--white);
+      background: var(--navy-900);
+    }
+
+    .principle p {
+      margin-top: 7px;
+      color: var(--gray-600);
+    }
+
+    /* Founder */
+
+    .founder {
+      color: var(--white);
+      background:
+        radial-gradient(circle at 85% 15%, rgba(32, 212, 210, 0.12), transparent 29%),
+        var(--navy-900);
+    }
+
+    .founder-grid {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      align-items: center;
+      gap: 90px;
+    }
+
+    .founder-mark {
+      position: relative;
+      display: grid;
+      width: min(100%, 370px);
+      aspect-ratio: 1;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .founder-mark::before,
+    .founder-mark::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(32, 212, 210, 0.16);
+      border-radius: 50%;
+    }
+
+    .founder-mark::before {
+      inset: 35px;
+    }
+
+    .founder-mark::after {
+      inset: 80px;
+    }
+
+    .founder-mark svg {
+      position: relative;
+      z-index: 2;
+      width: 150px;
+    }
+
+    .founder h2 {
+      color: var(--white);
+    }
+
+    .founder p {
+      max-width: 690px;
+      margin-top: 25px;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 1.13rem;
+    }
+
+    /* CTA */
+
+    .cta {
+      padding: 100px 0;
+      background: var(--teal-500);
+    }
+
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 45px;
+    }
+
+    .cta h2 {
+      max-width: 720px;
+      color: var(--navy-950);
+    }
+
+    .cta p {
+      max-width: 670px;
+      margin-top: 18px;
+      color: rgba(4, 20, 38, 0.72);
+      font-size: 1.08rem;
+    }
+
+    /* Footer */
+
+    footer {
+      padding: 60px 0 32px;
+      color: rgba(255, 255, 255, 0.65);
+      background: var(--navy-950);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr 0.6fr 0.6fr;
+      gap: 60px;
+      padding-bottom: 48px;
+    }
+
+    .footer-brand {
+      max-width: 440px;
+    }
+
+    .footer-brand p {
+      margin-top: 18px;
+      font-size: 0.94rem;
+    }
+
+    .footer-heading {
+      margin-bottom: 14px;
+      color: var(--white);
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+      font-size: 0.94rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--teal-500);
+    }
+
+    .medical-note {
+      padding: 22px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.82rem;
+      line-height: 1.6;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      padding-top: 28px;
+      font-size: 0.82rem;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 980px) {
+      .nav-links {
+        display: none;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 160px;
+      }
+
+      .hero-grid,
+      .product-card,
+      .principles-grid,
+      .founder-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .signal-stage {
+        min-height: 530px;
+      }
+
+      .signal-card {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+      }
+
+      .workflow-header,
+      .cta-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .workflow-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .product-copy {
+        padding: 55px 38px;
+      }
+
+      .principles-grid,
+      .founder-grid {
+        gap: 55px;
+      }
+
+      .founder-mark {
+        margin-inline: auto;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: min(calc(100% - 26px), var(--max-width));
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .hero {
+        padding: 138px 0 75px;
+      }
+
+      h1 {
+        font-size: clamp(2.8rem, 15vw, 4.4rem);
+      }
+
+      h2 {
+        font-size: clamp(2.1rem, 11vw, 3rem);
+      }
+
+      .hero-grid {
+        gap: 35px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .signal-stage {
+        min-height: 440px;
+      }
+
+      .signal-card {
+        min-height: 395px;
+      }
+
+      .label-track {
+        top: 40px;
+        right: 17px;
+      }
+
+      .label-review {
+        top: 145px;
+        left: 15px;
+      }
+
+      .label-prepare {
+        top: 245px;
+        right: 15px;
+      }
+
+      .label-discuss {
+        bottom: 24px;
+        left: 20px;
+      }
+
+      .orange-node {
+        top: 202px;
+        left: 50%;
+      }
+
+      .workflow-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .workflow-card {
+        min-height: 230px;
+      }
+
+      .workflow-number {
+        margin-bottom: 30px;
+      }
+
+      .product-visual {
+        min-height: 500px;
+      }
+
+      .phone {
+        width: 190px;
+        height: 405px;
+        border-radius: 34px;
+      }
+
+      .phone-left {
+        left: 4%;
+      }
+
+      .phone-right {
+        right: 2%;
+      }
+
+      .product-copy {
+        padding: 45px 25px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-brand {
+        grid-column: auto;
+      }
+
+      .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Evidence Health home">
+        <svg
+          class="brand-mark"
+          viewBox="0 0 64 64"
+          role="img"
+          aria-label="Evidence Health logo"
+        >
+          <defs>
+            <linearGradient id="logoGradient" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#20d4d2" />
+              <stop offset="100%" stop-color="#159da4" />
+            </linearGradient>
+          </defs>
+
+          <path
+            d="M9 14h31c7 0 12 5 12 11s-5 11-12 11H9c-4 0-7-3-7-7s3-7 7-7h31"
+            fill="none"
+            stroke="url(#logoGradient)"
+            stroke-width="8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+
+          <path
+            d="M9 42h29c7 0 12 5 12 11"
+            fill="none"
+            stroke="url(#logoGradient)"
+            stroke-width="8"
+            stroke-linecap="round"
+          />
+
+          <circle cx="40" cy="25" r="4.5" fill="#ffffff" />
+        </svg>
+
+        <span>Evidence<br />Health</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#approach">Our approach</a>
+        <a href="#warfarin">Warfarin Companion</a>
+        <a href="#about">About</a>
+        <a class="nav-cta" href="mailto:hello@evidencehealth.app">Contact</a>
+      </nav>
+
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="Open navigation"
+        onclick="document.getElementById('mobileMenu').toggleAttribute('hidden')"
+      >
+        ☰
+      </button>
+    </div>
+
+    <nav
+      id="mobileMenu"
+      hidden
+      style="
+        margin: 18px 14px 0;
+        padding: 18px;
+        border: 1px solid rgba(255,255,255,.12);
+        border-radius: 16px;
+        color: white;
+        background: rgba(4,20,38,.96);
+      "
+    >
+      <div style="display:grid; gap:14px;">
+        <a href="#approach">Our approach</a>
+        <a href="#warfarin">Warfarin Companion</a>
+        <a href="#about">About</a>
+        <a href="mailto:hello@evidencehealth.app">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-kicker">
+            <span></span>
+            Patient-centered health tools
+          </div>
+
+          <h1>
+            Clear information.
+            <span class="accent">Confident conversations</span><span class="orange-mark">.</span>
+          </h1>
+
+          <p class="hero-description">
+            Evidence Health helps people organize what happens between
+            appointments, understand what changed, and prepare for more
+            productive conversations with their healthcare teams.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#warfarin">
+              Explore Warfarin Companion →
+            </a>
+
+            <a class="btn btn-secondary" href="#approach">
+              See our approach
+            </a>
+          </div>
+
+          <div class="hero-note">
+            <span></span>
+            Designed to support care conversations—not replace clinical care.
+          </div>
+        </div>
+
+        <div class="signal-stage" aria-hidden="true">
+          <div class="signal-glow"></div>
+
+          <div class="signal-card">
+            <svg class="signal-path" viewBox="0 0 490 465">
+              <defs>
+                <linearGradient id="pathGradient" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#159da4" />
+                  <stop offset="55%" stop-color="#20d4d2" />
+                  <stop offset="100%" stop-color="#159da4" />
+                </linearGradient>
+
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="5" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
+
+              <path
+                d="M78 210
+                   H165
+                   C205 210 210 170 210 142
+                   V100
+                   C210 73 231 60 257 60
+                   H362
+                   M257 210
+                   H340
+                   C374 210 393 231 393 259
+                   V312
+                   C393 337 373 351 347 351
+                   H255
+                   C224 351 207 369 207 395
+                   V423"
+                fill="none"
+                stroke="rgba(32,212,210,.16)"
+                stroke-width="18"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+
+              <path
+                d="M78 210
+                   H165
+                   C205 210 210 170 210 142
+                   V100
+                   C210 73 231 60 257 60
+                   H362
+                   M257 210
+                   H340
+                   C374 210 393 231 393 259
+                   V312
+                   C393 337 373 351 347 351
+                   H255
+                   C224 351 207 369 207 395
+                   V423"
+                fill="none"
+                stroke="url(#pathGradient)"
+                stroke-width="7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                filter="url(#glow)"
+              />
+
+              <circle cx="78" cy="210" r="7" fill="#20d4d2" />
+              <circle cx="362" cy="60" r="7" fill="#20d4d2" />
+              <circle cx="257" cy="210" r="7" fill="#ffffff" />
+              <circle cx="257" cy="210" r="15" fill="none" stroke="rgba(32,212,210,.35)" />
+              <circle cx="207" cy="423" r="7" fill="#20d4d2" />
+            </svg>
+
+            <div class="orange-node"></div>
+
+            <div class="signal-label label-track">Track</div>
+            <div class="signal-label label-review">Review</div>
+            <div class="signal-label label-prepare">Prepare</div>
+            <div class="signal-label label-discuss">Discuss</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="approach" class="section workflow">
+      <div class="container">
+        <div class="workflow-header">
+          <div>
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span>
+              Our approach
+            </div>
+
+            <h2>
+              What happens between appointments matters<span class="orange-mark">.</span>
+            </h2>
+          </div>
+
+          <p>
+            Important details are often scattered across notes, calendars,
+            medication lists, messages, and memory. Evidence Health is designed
+            to bring those details into one clear path.
+          </p>
+        </div>
+
+        <div class="workflow-grid">
+          <article class="workflow-card">
+            <div class="workflow-number">1</div>
+            <h3>Track</h3>
+            <p>
+              Capture meaningful health updates as they happen instead of
+              trying to remember everything later.
+            </p>
+            <div class="workflow-line"></div>
+          </article>
+
+          <article class="workflow-card">
+            <div class="workflow-number">2</div>
+            <h3>Review</h3>
+            <p>
+              See what changed over time and bring the most relevant details
+              into focus.
+            </p>
+            <div class="workflow-line"></div>
+          </article>
+
+          <article class="workflow-card">
+            <div class="workflow-number">3</div>
+            <h3>Prepare</h3>
+            <p>
+              Turn daily updates into a clear, appointment-ready summary and
+              organized list of questions.
+            </p>
+            <div class="workflow-line"></div>
+          </article>
+
+          <article class="workflow-card">
+            <div class="workflow-number">4</div>
+            <h3>Discuss</h3>
+            <p>
+              Arrive prepared for a clearer, more productive conversation with
+              your healthcare team.
+            </p>
+            <div class="workflow-line"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="warfarin" class="section product">
+      <div class="container">
+        <div class="product-card">
+          <div class="product-copy">
+            <div class="eyebrow" style="color:#20d4d2;">
+              <span class="eyebrow-dot"></span>
+              Coming soon
+            </div>
+
+            <h2>
+              Warfarin Companion<span>.</span>
+            </h2>
+
+            <p>
+              A patient-centered tool for organizing INR results, medication
+              updates, symptoms, missed doses, diet changes, questions, and
+              other details that may matter during warfarin care.
+            </p>
+
+            <ul class="product-list">
+              <li>
+                <span class="check">✓</span>
+                <span>Track INR results, doses, symptoms, and meaningful events.</span>
+              </li>
+
+              <li>
+                <span class="check">✓</span>
+                <span>Review what changed since the last INR or appointment.</span>
+              </li>
+
+              <li>
+                <span class="check">✓</span>
+                <span>Prepare a clear summary for upcoming care conversations.</span>
+              </li>
+
+              <li>
+                <span class="check">✓</span>
+                <span>Support caregivers while maintaining appropriate access controls.</span>
+              </li>
+            </ul>
+
+            <div>
+              <a class="btn btn-primary" href="mailto:hello@evidencehealth.app?subject=Warfarin%20Companion%20updates">
+                Follow development →
+              </a>
+            </div>
+          </div>
+
+          <div class="product-visual" aria-label="Warfarin Companion application preview">
+            <div class="phone phone-left">
+              <div class="phone-notch"></div>
+
+              <div class="phone-screen dark">
+                <div class="phone-greeting">Good morning, Alex</div>
+
+                <div class="phone-card">
+                  <div class="phone-label">Next INR check</div>
+                  <div class="phone-value">May 22</div>
+                </div>
+
+                <div class="phone-card">
+                  <div class="phone-label">Latest INR</div>
+                  <div class="phone-value">2.4</div>
+
+                  <svg class="mini-chart" viewBox="0 0 200 90">
+                    <polyline
+                      points="4,65 40,57 77,68 112,42 150,47 195,26"
+                      fill="none"
+                      stroke="#20d4d2"
+                      stroke-width="4"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+
+                    <g fill="#20d4d2">
+                      <circle cx="4" cy="65" r="4" />
+                      <circle cx="40" cy="57" r="4" />
+                      <circle cx="77" cy="68" r="4" />
+                      <circle cx="112" cy="42" r="4" />
+                      <circle cx="150" cy="47" r="4" />
+                      <circle cx="195" cy="26" r="4" />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="phone phone-right">
+              <div class="phone-notch"></div>
+
+              <div class="phone-screen">
+                <div class="phone-greeting">Let’s prepare together</div>
+
+                <div class="phone-action">
+                  <div class="phone-action-icon">1</div>
+                  <div class="phone-action-copy">
+                    <strong>Track</strong>
+                    <span>Add your updates</span>
+                  </div>
+                </div>
+
+                <div class="phone-action">
+                  <div class="phone-action-icon">2</div>
+                  <div class="phone-action-copy">
+                    <strong>Review</strong>
+                    <span>See what changed</span>
+                  </div>
+                </div>
+
+                <div class="phone-action">
+                  <div class="phone-action-icon">3</div>
+                  <div class="phone-action-copy">
+                    <strong>Prepare</strong>
+                    <span>Build your summary</span>
+                  </div>
+                </div>
+
+                <div class="phone-action">
+                  <div class="phone-action-icon">4</div>
+                  <div class="phone-action-copy">
+                    <strong>Discuss</strong>
+                    <span>Have a confident visit</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section principles">
+      <div class="container principles-grid">
+        <div>
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Built responsibly
+          </div>
+
+          <h2>
+            Designed around the realities of care<span class="orange-mark">.</span>
+          </h2>
+
+          <p class="section-copy">
+            Evidence Health products are built to help people become more
+            organized and prepared while maintaining clear boundaries around
+            the role of technology in healthcare.
+          </p>
+        </div>
+
+        <div class="principle-list">
+          <article class="principle">
+            <div class="principle-icon">01</div>
+            <div>
+              <h3>Patient-centered</h3>
+              <p>
+                Workflows begin with the patient’s real experience between
+                appointments.
+              </p>
+            </div>
+          </article>
+
+          <article class="principle">
+            <div class="principle-icon">02</div>
+            <div>
+              <h3>Secure and private</h3>
+              <p>
+                Products are designed to collect only what is needed and treat
+                personal information responsibly.
+              </p>
+            </div>
+          </article>
+
+          <article class="principle">
+            <div class="principle-icon">03</div>
+            <div>
+              <h3>Clinically responsible</h3>
+              <p>
+                Tools support preparation and communication without replacing
+                professional medical judgment.
+              </p>
+            </div>
+          </article>
+
+          <article class="principle">
+            <div class="principle-icon">04</div>
+            <div>
+              <h3>Built on evidence</h3>
+              <p>
+                Educational information is grounded in credible sources and
+                reviewed as guidance evolves.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section founder">
+      <div class="container founder-grid">
+        <div class="founder-mark" aria-hidden="true">
+          <svg viewBox="0 0 180 180">
+            <defs>
+              <linearGradient id="largeLogoGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#20d4d2" />
+                <stop offset="100%" stop-color="#159da4" />
+              </linearGradient>
+            </defs>
+
+            <path
+              d="M28 42h82c19 0 33 14 33 30s-14 30-33 30H28c-11 0-19-8-19-19s8-19 19-19h82"
+              fill="none"
+              stroke="url(#largeLogoGradient)"
+              stroke-width="20"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+
+            <path
+              d="M28 119h76c19 0 33 14 33 30"
+              fill="none"
+              stroke="url(#largeLogoGradient)"
+              stroke-width="20"
+              stroke-linecap="round"
+            />
+
+            <circle cx="110" cy="72" r="11" fill="#ffffff" />
+            <circle cx="110" cy="72" r="17" fill="none" stroke="#ff715b" stroke-width="4" />
+          </svg>
+        </div>
+
+        <div>
+          <div class="eyebrow" style="color:#20d4d2;">
+            <span class="eyebrow-dot"></span>
+            Why Evidence Health
+          </div>
+
+          <h2>
+            Better preparation can lead to better conversations<span class="orange-mark">.</span>
+          </h2>
+
+          <p>
+            Evidence Health was founded by a healthcare professional who saw
+            how difficult it can be for patients and families to organize
+            everything that happens between appointments. Its tools are
+            designed to make those details easier to capture, understand, and
+            discuss.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container cta-inner">
+        <div>
+          <h2>
+            Follow the development of Warfarin Companion<span class="orange-mark">.</span>
+          </h2>
+
+          <p>
+            Contact Evidence Health for product updates, collaboration
+            opportunities, or questions about the project.
+          </p>
+        </div>
+
+        <a
+          class="btn btn-light"
+          href="mailto:hello@evidencehealth.app?subject=Evidence%20Health%20inquiry"
+        >
+          Contact Evidence Health →
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="#top">
+            <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+              <path
+                d="M9 14h31c7 0 12 5 12 11s-5 11-12 11H9c-4 0-7-3-7-7s3-7 7-7h31"
+                fill="none"
+                stroke="#20d4d2"
+                stroke-width="8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+
+              <path
+                d="M9 42h29c7 0 12 5 12 11"
+                fill="none"
+                stroke="#20d4d2"
+                stroke-width="8"
+                stroke-linecap="round"
+              />
+
+              <circle cx="40" cy="25" r="4.5" fill="#ffffff" />
+            </svg>
+
+            <span>Evidence<br />Health</span>
+          </a>
+
+          <p>
+            Patient-centered tools that help people organize what changed and
+            prepare for more productive healthcare conversations.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-heading">Explore</div>
+          <div class="footer-links">
+            <a href="#approach">Our approach</a>
+            <a href="#warfarin">Warfarin Companion</a>
+            <a href="#about">About</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-heading">Contact</div>
+          <div class="footer-links">
+            <a href="mailto:hello@evidencehealth.app">
+              hello@evidencehealth.app
+            </a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="medical-note">
+        Evidence Health products are intended to support organization,
+        education, and communication. They do not provide medical advice,
+        diagnosis, treatment, medication dosing, or emergency services. Always
+        follow the instructions of your qualified healthcare professionals. In
+        an emergency, contact local emergency services.
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Evidence Health. All rights reserved.</span>
+        <span>Understand what changed<span class="orange-mark">.</span></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.querySelectorAll("#mobileMenu a").forEach((link) => {
+      link.addEventListener("click", () => {
+        document.getElementById("mobileMenu").setAttribute("hidden", "");
+      });
+    });
+  </script>
+</body>
+</html>
