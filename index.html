@@ -56,10 +56,11 @@
     .brand img { width: 53px; height: 53px; object-fit: contain; }
     .brand strong { display: block; color: var(--navy); }
     .brand span span { color: var(--teal); }
-    .nav-links { display: flex; align-items: center; gap: 30px; color: #142654; font-size: .92rem; font-weight: 720; }
+    .nav-links { display: flex; align-items: center; gap: 32px; color: #142654; font-size: .92rem; font-weight: 720; }
     .nav-links a:hover { color: var(--teal); }
     .menu-button { display: none; padding: 8px; border: 0; color: var(--navy); background: transparent; font-size: 1.5rem; cursor: pointer; }
     .mobile-menu { display: grid; gap: 14px; padding: 20px; border-top: 1px solid var(--line); color: var(--navy); background: var(--white); font-weight: 750; }
+    .mobile-menu[hidden] { display: none !important; }
 
     .hero { overflow: hidden; padding: 72px 0 0; background: radial-gradient(circle at 76% 32%, rgba(11,146,164,.08), transparent 26%), linear-gradient(180deg, #fff, #fbfdff); }
     .hero-grid { display: grid; grid-template-columns: .92fr 1.08fr; align-items: center; gap: 60px; }
@@ -108,18 +109,15 @@
 
     .platform { background: linear-gradient(180deg, #f9fbfd, #fff); }
     .companion-grid { display: grid; grid-template-columns: repeat(6,1fr); gap: 14px; margin-top: 42px; }
-    .companion-card { display: flex; min-height: 315px; flex-direction: column; align-items: center; padding: 20px 16px; border: 1px solid var(--line); border-radius: 14px; background: #fff; text-align: center; transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease; }
+    .companion-card { display: flex; min-height: 336px; flex-direction: column; align-items: center; padding: 20px 16px; border: 1px solid var(--line); border-radius: 14px; background: #fff; text-align: center; transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease; }
     .companion-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
     .companion-card.featured { border: 2px solid rgba(11,146,164,.65); box-shadow: 0 16px 34px rgba(11,146,164,.12); }
     .status { margin-bottom: 14px; padding: 4px 9px; border-radius: 999px; font-size: .58rem; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
     .status.available { color: #066673; background: #dff4f6; }
     .status.development { color: #5b319d; background: #efe5fb; }
     .status.planned { color: #496078; background: #edf2f6; }
-    .companion-icon { position: relative; display: grid; width: 82px; height: 82px; place-items: center; margin-bottom: 12px; border: 9px solid currentColor; border-radius: 50%; color: var(--accent); }
-    .companion-icon::before { content: ""; position: absolute; top: -13px; right: 4px; width: 18px; height: 18px; background: #fff; transform: rotate(45deg); }
-    .companion-letter { color: var(--navy); font-size: 2rem; font-weight: 900; line-height: 1; }
-    .companion-accent { position: absolute; bottom: -22px; left: 50%; color: var(--accent); font-size: 1.3rem; font-weight: 900; transform: translateX(-50%); }
-    .companion-card h3 { margin-top: 11px; color: var(--accent); font-size: 1.05rem; line-height: 1.12; }
+    .companion-logo { width: 104px; height: 116px; object-fit: contain; margin-bottom: 2px; }
+    .companion-card h3 { margin-top: 4px; color: var(--accent); font-size: 1.05rem; line-height: 1.12; }
     .companion-card h3 span { color: var(--navy); }
     .companion-card p { margin-top: 14px; color: var(--muted); font-size: .76rem; }
     .card-link { margin-top: auto; padding-top: 16px; color: var(--accent); font-size: .82rem; font-weight: 850; }
@@ -300,15 +298,55 @@
       <div class="container">
         <div class="section-heading"><h2>Evidence Health Platform</h2><p>One company. Specialized companions.</p></div>
         <div class="companion-grid">
-          <article id="warfarin" class="companion-card featured" style="--accent: var(--warfarin);">
-            <span class="status available">Available now</span><div class="companion-icon"><span class="companion-letter">W</span><span class="companion-accent">●</span></div><h3>Warfarin<br /><span>Companion</span></h3><p>Track INR, doses, diet, and more. Prepare for better appointments.</p><a class="btn btn-teal" style="margin-top:auto; min-height:42px;" href="mailto:hello@evidencehealth.app?subject=Warfarin%20Companion">Download Now</a>
+          <article id="warfarin" class="companion-card featured">
+            <span class="status available">Available now</span>
+            <img class="companion-logo" src="warfarin-companion.svg" alt="Warfarin Companion logo" />
+            <h3 style="color:#0B92A4">Warfarin<br /><span>Companion</span></h3>
+            <p>Track INR, doses, diet, and more. Prepare for better appointments.</p>
+            <a class="btn btn-teal" style="margin-top:auto;min-height:42px" href="mailto:hello@evidencehealth.app?subject=Warfarin%20Companion">Download Now</a>
           </article>
-          <article class="companion-card" style="--accent: var(--lithium);"><span class="status development">In development</span><div class="companion-icon"><span class="companion-letter">L</span><span class="companion-accent">●</span></div><h3>Lithium<br /><span>Companion</span></h3><p>Track levels, symptoms, medications, and more. Coming soon.</p><span class="card-link disabled">In development</span></article>
-          <article class="companion-card" style="--accent: var(--tacrolimus);"><span class="status planned">Planned</span><div class="companion-icon"><span class="companion-letter">T</span><span class="companion-accent">⌃</span></div><h3>Tacrolimus<br /><span>Companion</span></h3><p>Stay on top of levels, doses, and changes that matter.</p><span class="card-link disabled">Planned</span></article>
-          <article class="companion-card" style="--accent: var(--ivf);"><span class="status planned">Planned</span><div class="companion-icon"><span class="companion-letter">I</span><span class="companion-accent">♥</span></div><h3>IVF<br /><span>Companion</span></h3><p>Support for every step of your fertility and treatment journey.</p><span class="card-link disabled">Planned</span></article>
-          <article class="companion-card" style="--accent: var(--oncology);"><span class="status planned">Planned</span><div class="companion-icon"><span class="companion-letter">O</span><span class="companion-accent">♙</span></div><h3>Oncology<br /><span>Companion</span></h3><p>Track treatment, side effects, and labs with confidence.</p><span class="card-link disabled">Planned</span></article>
-          <article class="companion-card" style="--accent: var(--chronic);"><span class="status planned">Planned</span><div class="companion-icon"><span class="companion-letter">C</span><span class="companion-accent">+</span></div><h3>Chronic Care<br /><span>Companion</span></h3><p>Tools for managing chronic conditions every day.</p><span class="card-link disabled">Planned</span></article>
+
+          <article class="companion-card">
+            <span class="status development">In development</span>
+            <img class="companion-logo" src="lithium-companion.svg" alt="Lithium Companion logo" />
+            <h3 style="color:#6A4C9C">Lithium<br /><span>Companion</span></h3>
+            <p>Track levels, symptoms, medications, and more. Coming soon.</p>
+            <span class="card-link disabled">In development</span>
+          </article>
+
+          <article class="companion-card">
+            <span class="status planned">Planned</span>
+            <img class="companion-logo" src="tacrolimus-companion.svg" alt="Tacrolimus Companion logo" />
+            <h3 style="color:#1A7C80">Tacrolimus<br /><span>Companion</span></h3>
+            <p>Stay on top of levels, doses, and changes that matter.</p>
+            <span class="card-link disabled">Planned</span>
+          </article>
+
+          <article class="companion-card">
+            <span class="status planned">Planned</span>
+            <img class="companion-logo" src="ivf-companion.svg" alt="IVF Companion logo" />
+            <h3 style="color:#6BB24A">IVF<br /><span>Companion</span></h3>
+            <p>Support for every step of your fertility and treatment journey.</p>
+            <span class="card-link disabled">Planned</span>
+          </article>
+
+          <article class="companion-card">
+            <span class="status planned">Planned</span>
+            <img class="companion-logo" src="oncology-companion.svg" alt="Oncology Companion logo" />
+            <h3 style="color:#F07A17">Oncology<br /><span>Companion</span></h3>
+            <p>Track treatment, side effects, and labs with confidence.</p>
+            <span class="card-link disabled">Planned</span>
+          </article>
+
+          <article class="companion-card">
+            <span class="status planned">Planned</span>
+            <img class="companion-logo" src="chronic-care-companion.svg" alt="Chronic Care Companion logo" />
+            <h3 style="color:#2563EB">Chronic Care<br /><span>Companion</span></h3>
+            <p>Tools for managing chronic conditions every day.</p>
+            <span class="card-link disabled">Planned</span>
+          </article>
         </div>
+
         <div class="platform-more">More companions coming soon →</div>
       </div>
     </section>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 190" role="img" aria-labelledby="title">
+  <title id="title">Warfarin Companion</title>
+  <path d="M126 36 A58 58 0 1 0 128 118" fill="none" stroke="#0B92A4" stroke-width="14" stroke-linecap="round"/>
+  <path d="M131 28 L119 40" fill="none" stroke="#0B92A4" stroke-width="12" stroke-linecap="round"/>
+  <text x="80" y="104" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="58" font-weight="800" fill="#0F2D6B">W</text>
+  <path d="M80 138 C68 152 64 159 64 167 C64 177 71 184 80 184 C89 184 96 177 96 167 C96 159 92 152 80 138 Z" fill="#EF4444"/>
+</svg>

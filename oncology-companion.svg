@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 190" role="img" aria-labelledby="title">
+  <title id="title">Oncology Companion</title>
+  <path d="M126 36 A58 58 0 1 0 128 118" fill="none" stroke="#F07A17" stroke-width="14" stroke-linecap="round"/>
+  <path d="M131 28 L119 40" fill="none" stroke="#F07A17" stroke-width="12" stroke-linecap="round"/>
+  <text x="80" y="104" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="58" font-weight="800" fill="#0F2D6B">O</text>
+  <path d="M80 144 C91 144 98 152 98 161 C98 170 92 178 80 178 C68 178 62 170 62 161 C62 152 69 144 80 144 Z M80 151 C74 151 70 155 70 161 C70 167 74 171 80 171 C86 171 90 167 90 161 C90 155 86 151 80 151 Z" fill="#F07A17"/>
+</svg>

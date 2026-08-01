@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 190" role="img" aria-labelledby="title">
+  <title id="title">IVF Companion</title>
+  <path d="M126 36 A58 58 0 1 0 128 118" fill="none" stroke="#6BB24A" stroke-width="14" stroke-linecap="round"/>
+  <path d="M131 28 L119 40" fill="none" stroke="#6BB24A" stroke-width="12" stroke-linecap="round"/>
+  <text x="80" y="104" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="58" font-weight="800" fill="#0F2D6B">I</text>
+  <path d="M80 178 C72 170 61 162 61 152 C61 142 70 138 80 147 C90 138 99 142 99 152 C99 162 88 170 80 178 Z" fill="#16815A"/>
+</svg>

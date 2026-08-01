@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 190" role="img" aria-labelledby="title">
+  <title id="title">Tacrolimus Companion</title>
+  <path d="M126 36 A58 58 0 1 0 128 118" fill="none" stroke="#1A7C80" stroke-width="14" stroke-linecap="round"/>
+  <path d="M131 28 L119 40" fill="none" stroke="#1A7C80" stroke-width="12" stroke-linecap="round"/>
+  <text x="80" y="104" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="58" font-weight="800" fill="#0F2D6B">T</text>
+  <path d="M61 168 L80 149 L99 168 L92 175 L80 163 L68 175 Z" fill="#6BB24A"/>
+</svg>
