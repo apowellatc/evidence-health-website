@@ -2,6 +2,6 @@
   "name": "evidence-health-website",
   "compatibility_date": "2026-10-02",
   "assets": {
-    "directory": "./"
+    "directory": "./public"
   }
 }
